@@ -6,6 +6,7 @@
 package flexion;
 
 import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,6 +26,18 @@ public class MainScreen extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    public String editInputDialog(String message) {
+        return JOptionPane.showInputDialog(null,message,"Editar", 2);
+    }
+    
+    public void repaint() {
+        this.jLabel20.setText(df.format(this.f.getAs()));
+        this.jLabel21.setText(df.format(this.f.getXivFy()));
+        this.jLabel22.setText(df.format(this.f.getAsT()));
+        this.jLabel23.setText(df.format(this.f.getFductil()));
+        this.jLabel24.setText(df.format(this.f.getdMo()));
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -324,7 +337,11 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        String tmp = this.editInputDialog("Ingresa el valor Mo (Kg * m): \n");
+        this.f.setMo(Float.parseFloat(tmp));
+        this.jLabel13.setText(tmp);
+        this.f.recalculate();
+        this.repaint();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
