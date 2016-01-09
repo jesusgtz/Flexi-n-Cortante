@@ -152,5 +152,18 @@ public class Flexion {
     public void setdMo(float dMo) {
         this.dMo = dMo;
     }
+
+    @Override
+    public String toString() {
+        return "Flexion{" + "Mo=" + Mo + ", h=" + h + ", d=" + d + ", b=" + b + ", U=" + U + ", fc=" + fc + ", Fy=" + Fy + ", As=" + As + ", xivFy=" + xivFy + ", AsT=" + AsT + ", Fductil=" + Fductil + ", dMo=" + dMo + '}';
+    }
+    
+    public void recalculate() {
+        this.As = b*d/(Fy/(0.85*fc))-Math.sqrt(Math.pow(b*d/((Fy/(0.85*fc))),2)-2*Mo*100*U*b/(0.9*(Fy/(0.85*fc)*Fy)));
+        this.xivFy = 14.5*b*d/this.Fy;
+        this.AsT = 0.002*b*h;
+        this.Fductil = As/(b*d);
+        this.dMo = Math.sqrt(Mo*100*U/(0.9*51.29*b));
+    }
  
 }

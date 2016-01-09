@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package flexion;
 
 import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,7 +21,29 @@ public class MainScreen extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
+    
+    /**
+     * Funcion para lanzar un showInputDialog de JOptionPane con un mensaje
+     * personalizado.
+     * @param message
+     * @return 
+     */
+    public String editInputDialog(String message) {
+        return JOptionPane.showInputDialog(null,message,"Editar", 2);
+    }
+    
+    /**
+     * Funcion para cambiar los valores de los JLabel despues de utilizar
+     * alguno de los botones para editar
+     */
+    public void repaint() {
+        this.jLabel20.setText(df.format(this.f.getAs()));
+        this.jLabel21.setText(df.format(this.f.getXivFy()));
+        this.jLabel22.setText(df.format(this.f.getAsT()));
+        this.jLabel23.setText(df.format(this.f.getFductil()));
+        this.jLabel24.setText(df.format(this.f.getdMo()));
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -155,16 +174,46 @@ public class MainScreen extends javax.swing.JFrame {
         });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flexion/img/edit.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flexion/img/edit.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flexion/img/edit.png"))); // NOI18N
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flexion/img/edit.png"))); // NOI18N
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flexion/img/edit.png"))); // NOI18N
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flexion/img/edit.png"))); // NOI18N
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -224,7 +273,7 @@ public class MainScreen extends javax.swing.JFrame {
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 45, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 81, Short.MAX_VALUE)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,8 +373,60 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        String tmp = this.editInputDialog("Ingresa el valor Mo (Kg * m): \n");
+        this.f.setMo(Float.parseFloat(tmp));
+        this.jLabel13.setText(tmp);
+        this.f.recalculate();
+        this.repaint();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String tmp = this.editInputDialog("Ingresa el valor h (cm): \n");
+        this.f.setH(Float.parseFloat(tmp));
+        this.jLabel14.setText(tmp);
+        this.f.recalculate();
+        this.repaint();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String tmp = this.editInputDialog("Ingresa el valor d (cm): \n");
+        this.f.setD(Float.parseFloat(tmp));
+        this.jLabel15.setText(tmp);
+        this.f.recalculate();
+        this.repaint();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        String tmp = this.editInputDialog("Ingresa el valor b (cm): \n");
+        this.f.setB(Float.parseFloat(tmp));
+        this.jLabel16.setText(tmp);
+        this.f.recalculate();
+        this.repaint();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String tmp = this.editInputDialog("Ingresa el valor U: \n");
+        this.f.setU(Float.parseFloat(tmp));
+        this.jLabel17.setText(tmp);
+        this.f.recalculate();
+        this.repaint();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        String tmp = this.editInputDialog("Ingresa el valor fc: \n");
+        this.f.setFc(Float.parseFloat(tmp));
+        this.jLabel18.setText(tmp);
+        this.f.recalculate();
+        this.repaint();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        String tmp = this.editInputDialog("Ingresa el valor Fy: \n");
+        this.f.setFy(Float.parseFloat(tmp));
+        this.jLabel19.setText(tmp);
+        this.f.recalculate();
+        this.repaint();
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
