@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package flexion;
 
 import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +20,11 @@ public class AceroEnCompresionScreen extends javax.swing.JFrame {
         this.df = new DecimalFormat("#,###,##0.00000");
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+    public void repaint() {
+        this.jLabel4.setText(df.format(this.aec.getAps()));
+        this.jLabel6.setText(df.format(this.aec.getAs()));
     }
 
     /**
@@ -112,7 +114,12 @@ public class AceroEnCompresionScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        String tmp = JOptionPane.showInputDialog(null,
+                "Ingresa el valor de r (cm): \n", "",2);
+        this.jLabel2.setText(tmp);
+        this.aec.setR(Float.parseFloat(tmp));
+        this.aec.recalculate();
+        this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
