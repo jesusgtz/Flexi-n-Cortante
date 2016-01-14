@@ -171,5 +171,5 @@ public class MainInput extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
-    public Flexion f;
+    Flexion f;
 }

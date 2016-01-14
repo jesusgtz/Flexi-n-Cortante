@@ -64,5 +64,9 @@ public class AceroEnCompresion {
         return "AceroEnCompresion{" + "r=" + r + ", Aps=" + Aps + ", As=" + As + ", f=" + f + '}';
     }
     
-        
+    public void recalculate() {
+        this.Aps = (f.Mo*100*f.U-46.617*f.b*Math.pow(f.d, 2))/(0.9*f.Fy*(f.d-r));
+        this.As = 0.0152*f.b*f.d+(f.Mo*100*f.U-46.617*f.b*Math.pow(f.d, 2))/(0.9*f.Fy*(f.d-r));
+    }    
+    
 }
