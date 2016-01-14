@@ -361,7 +361,14 @@ public class MainScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String tmp = JOptionPane.showInputDialog(null,
+                "Ingresa el valor de r (cm): \n", "",2);
+        this.aec = new AceroEnCompresion(Float.parseFloat(tmp),f);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AceroEnCompresionScreen(f,aec).setVisible(true);
+            }
+        });
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -466,4 +473,5 @@ public class MainScreen extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     Flexion f;
     DecimalFormat df;
+    AceroEnCompresion aec;
 }
