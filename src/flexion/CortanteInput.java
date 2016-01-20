@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package flexion;
 
 /**
@@ -13,6 +9,7 @@ public class CortanteInput extends javax.swing.JFrame {
 
     /**
      * Creates new form CortanteInput
+     * @param f
      */
     public CortanteInput(Flexion f) {
         this.f = f;
@@ -92,7 +89,11 @@ public class CortanteInput extends javax.swing.JFrame {
         float Vd = Float.parseFloat(this.jTextField1.getText());
         float As = Float.parseFloat(this.jTextField2.getText());
         this.c = new Cortante(Vd,As,f);
-        //Display CortanteScreen
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CortanteScreen(c).setVisible(true);
+            }
+        });
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -103,7 +104,7 @@ public class CortanteInput extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
-    private Flexion f;
+    private final Flexion f;
     private Cortante c;
 
 }

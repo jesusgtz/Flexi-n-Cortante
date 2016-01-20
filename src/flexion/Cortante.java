@@ -243,4 +243,18 @@ public class Cortante {
         return "Cortante{" + "Vd=" + Vd + ", Uu=" + Uu + ", Smax=" + Smax + ", As=" + As + ", Vc=" + Vc + ", secc=" + secc + ", E=" + E + ", I3=" + I3 + ", I4=" + I4 + ", I5=" + I5 + ", Eval=" + Eval + ", f=" + f + '}';
     }
     
+    /**
+     * Funcion para recalcular valores despues de editar alguno de los atributos
+     */
+    public void recalculate() {
+        this.Uu = Vd*f.U/(0.85*f.b*f.d)-Math.sqrt(f.fc)*0.53;
+        this.Smax = calcSmax(this.Uu);
+        this.Vc = (0.53*Math.sqrt(f.fc)*f.b*f.d*0.85)/f.U;
+        this.secc = calcSecc(this.Uu);
+        this.E = calcE(As);
+        this.I3 = calcI3(Vd, Uu, As,f);
+        this.I4 = calcI4(Uu, f);
+        this.I5 = calcI5(this.I3);
+        this.Eval = calcEval(Uu, I4, I5);
+    }
 }
