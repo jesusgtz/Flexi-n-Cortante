@@ -45,9 +45,11 @@ public class AceroEnCompresionScreen extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setText("r (cm) =");
 
+        jLabel2.setForeground(new java.awt.Color(0, 82, 255));
         jLabel2.setText(Float.toString(aec.getR()));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flexion/img/edit.png"))); // NOI18N
