@@ -27,6 +27,7 @@ public class Cortante {
      * @param f 
      */
     public Cortante(float Vd, float As, Flexion f) {
+        this.f = f;
         this.Vd = Vd;
         this.Uu = Vd*f.U/(0.85*f.b*f.d)-Math.sqrt(f.fc)*0.53;
         this.Smax = calcSmax(this.Uu);
@@ -38,7 +39,6 @@ public class Cortante {
         this.I4 = calcI4(Uu, f);
         this.I5 = calcI5(this.I3);
         this.Eval = calcEval(Uu, I4, I5);
-        this.f = f;
     }
     
     /**
@@ -49,7 +49,7 @@ public class Cortante {
     private String calcSmax(double Uu) {
         if(Uu<0) {
             return "d";
-        } else if(Uu<Math.sqrt(f.fc)) {
+        } else if(Uu < Math.sqrt(f.fc)) {
             return "d/2";
         } else return "d/4";
     }
@@ -71,17 +71,17 @@ public class Cortante {
      * @return 
      */
     private String calcE(float As) {
-        if(As == 0.71) {
+        if(As == (float)0.71) {
             return "E#3@";
-        } else if(As == 1.27) {
+        } else if(As == (float)1.27) {
             return "E#4@";
-        } else if(As == 1.98) {
+        } else if(As == (float)1.98) {
             return "E#5@";
-        } else if(As == 2.54) {
+        } else if(As == (float)2.54) {
             return "(4 ramas)E#4@";
-        } else if(As == 1.42) {
+        } else if(As == (float)1.42) {
             return "(4 ramas)E#3@";
-        } else if(As == 3.96) {
+        } else if(As == (float)3.96) {
             return "(4 ramas)E#5@";
         } else return "E#6@";
     }
@@ -236,6 +236,11 @@ public class Cortante {
 
     public void setF(Flexion f) {
         this.f = f;
+    }
+
+    @Override
+    public String toString() {
+        return "Cortante{" + "Vd=" + Vd + ", Uu=" + Uu + ", Smax=" + Smax + ", As=" + As + ", Vc=" + Vc + ", secc=" + secc + ", E=" + E + ", I3=" + I3 + ", I4=" + I4 + ", I5=" + I5 + ", Eval=" + Eval + ", f=" + f + '}';
     }
     
 }
