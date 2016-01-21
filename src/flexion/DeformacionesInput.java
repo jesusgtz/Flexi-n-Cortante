@@ -89,13 +89,11 @@ public class DeformacionesInput extends javax.swing.JFrame {
         float Y = Float.parseFloat(this.jTextField1.getText());
         float L = Float.parseFloat(this.jTextField2.getText());
         this.d = new Deformaciones(f,Y,L);
-        /*
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new DeformacionesScreen(d).setVisible(true);
             }
         });
-        */
         System.out.println(d.toString());
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
